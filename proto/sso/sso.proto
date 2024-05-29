@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package auth;
+
+option go_package = "sxope-id.sso;sso";
+
+// Auth is service for managing permissions and roles.
+service Sso {
+  rpc GetInfoByGoogleToken (GoogleTokenRequest) returns (GoogleTokenResponse);
+}
+
+message GoogleTokenRequest {
+  string token = 1;
+}
+
+message GoogleTokenResponse {
+  DataOwners dataOwner = 1;
+  bool success = 2;
+  UserInfo userInfo = 3;
+}
+
+message UserInfo {
+  string id = 1;
+  string email = 2;
+  string firstName = 3;
+  string lastName = 4;
+}
+
+enum DataOwners {
+  TEST = 0;
+  PP = 1;
+}
