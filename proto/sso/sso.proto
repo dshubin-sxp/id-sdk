@@ -14,9 +14,9 @@ message GoogleTokenRequest {
 }
 
 message GoogleTokenResponse {
-  DataOwners dataOwner = 1;
-  bool success = 2;
-  UserInfo userInfo = 3;
+  bool success = 1;
+  UserInfo userInfo = 2;
+  optional DataOwners dataOwner = 3;
 }
 
 message UserInfo {
